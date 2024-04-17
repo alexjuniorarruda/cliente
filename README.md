@@ -36,16 +36,16 @@ npm install
 DATABASE_URL="mysql://seu_usuario:seu_password@endereco_banco/clientedb"
 ```
 
-- Criar o banco de dados com o comando
+- Criar o banco de dados com o comando, esse mesmo comando também roda o seed da aplicação e popula o banco com alguns dados
   
 ```
-npx sequelize-cli db:create
+npx prisma migrate dev
 ```
 
 - Executar o projeto
   
 ```
-npm start
+npm run dev
 ```
 
 # Autor
