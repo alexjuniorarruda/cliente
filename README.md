@@ -62,6 +62,10 @@ A aplicação possui apenas uma rota, nela é possivel fazer o cadastro do clien
 
 ![Schema](https://github.com/alexjuniorarruda/cliente/assets/112874423/48de022e-ada4-4fe3-b06b-ef207bc7de6f)
 
+### Rota Cliente
+
+![Rota Cliente](https://github.com/alexjuniorarruda/cliente/assets/112874423/b1973bf6-ddec-4cf3-8277-ea9e4f609bb1)
+
 # Autor
 
 Alex Junior Arruda
