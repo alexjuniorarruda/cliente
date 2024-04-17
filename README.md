@@ -30,13 +30,10 @@
 npm install
 ```
 
-- Renomear o arquivo .env.example para .env e colocar as sequintes informações (DB_USER, DB_PASSWORD e DB_HOST fica a critério)
+- Renomear o arquivo .env.example para .env e colocar as sequintes informações
   
 ```
-DB_NAME=livrariadb
-DB_USER=root
-DB_PASSWORD=root
-DB_HOST=localhost
+DATABASE_URL="mysql://seu_usuario:seu_password@endereco_banco/clientedb"
 ```
 
 - Criar o banco de dados com o comando
