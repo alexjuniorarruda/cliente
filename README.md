@@ -32,7 +32,7 @@
 npm install
 ```
 
-- Renomear o arquivo .env.example para .env e colocar as sequintes informações
+- Renomear o arquivo .env.example para .env e colocar as seguintes informações
   
 ```
 DATABASE_URL="mysql://seu_usuario:seu_password@endereco_banco/clientedb"
