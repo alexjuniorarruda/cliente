@@ -1,0 +1,249 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "API de cadastro de clientes",
+        "description": "Essa API tem po finalidade gerenciar cadastro de clientes",
+        "termsOfService": "",
+        "contact": {
+            "email": "alex.j.arruda@hotmail.com"
+        },
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:3000",
+            "description": "API de produção"
+        }
+    ],
+    "paths": {
+        "/clientes": {
+            "post": {
+                "summary": "Cadastrar Cliente",
+                "description": "Essa rota é responsalvel pelo cadastro de novos clientes",
+                "tags": [
+                    "Clientes"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cliente"
+                            },
+                            "examples": {
+                                "cliente": {
+                                    "value": {
+                                        "nome_completo": "Alex Junior Arruda",
+                                        "cpf": "99999999999",
+                                        "data_nascimento": "1996-08-27",
+                                        "logradouro": "Rua A",
+                                        "numero_logradouro": "123",
+                                        "bairro": "Centro",
+                                        "email": "alex.j.arruda@hotmail.com",
+                                        "telefone": "6799999999",
+                                        "cep": "79560000"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Create",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "$ref": "#/components/schemas/Cliente"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    }
+                }
+            },
+            "get": {
+                "summary": "Buscar todos os Clientes",
+                "description": "Lista todos os clientes cadastrados no banco",
+                "tags": [
+                    "Clientes"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Cliente"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/clientes/{id}": {
+            "get": {
+                "summary": "Buscar cliente por Id",
+                "description": "Busca um cliente pelo Id",
+                "tags": [
+                    "Clientes"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Cliente",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cliente"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "put": {
+                "summary": "Atualizar Cliente",
+                "description": "Atualiza cliente pelo do Id",
+                "tags": [
+                    "Clientes"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Cliente",
+                        "required": true
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Cliente"
+                            },
+                            "examples": {
+                                "cliente": {
+                                    "value": {
+                                        "nome_completo": "Alex Junior Arruda",
+                                        "cpf": "99999999999",
+                                        "data_nascimento": "1996-08-27",
+                                        "logradouro": "Rua A",
+                                        "numero_logradouro": "123",
+                                        "bairro": "Centro",
+                                        "email": "alex.j.arruda@hotmail.com",
+                                        "telefone": "6799999999",
+                                        "cep": "79560000"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cliente"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            },
+            "delete": {
+                "summary": "Exclui Cliente",
+                "description": "Exclui o cliente pelo do Id",
+                "tags": [
+                    "Clientes"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "Id do Cliente",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Cliente"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Not Found"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Cliente": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "number"
+                    },
+                    "nome_completo": {
+                        "type": "string"
+                    },
+                    "cpf": {
+                        "type": "string"
+                    },
+                    "data_nascimento": {
+                        "type": "string"
+                    },
+                    "logradouro": {
+                        "type": "string"
+                    },
+                    "numero_logradouro": {
+                        "type": "string"
+                    },
+                    "bairro": {
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "telefone": {
+                        "type": "string"
+                    },
+                    "cep": {
+                        "type": "string"
+                    }
+                }
+            }
+        }
+    }
+}
